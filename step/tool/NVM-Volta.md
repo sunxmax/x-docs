@@ -61,7 +61,7 @@ Volta 和 NVM 都是用于管理 Node.js 版本的工具
 
 ## Volta
 
-**安装**
+**使用**
 
 [详见](https://volta.sh/)
 
@@ -69,7 +69,17 @@ Volta 和 NVM 都是用于管理 Node.js 版本的工具
 
 ```shell
 # volta 版本
-volta -v 
+
+volta --version
+# volta 更新
+volta update
+# volta 帮助
+volta --help
+
+# volta 全局安装
+volta install --global <package>
+# volta 全局卸载
+volta uninstall --global <package>
 
 # volta 已安装集合
 volta list
@@ -77,7 +87,11 @@ volta list
 # volta 安装
 volta install node@version
 volta install yarn@lastet
+# volta 卸载
+volta uninstall node@version
+volta uninstall yarn@lastet
 
-# volta pin 命令将更新项目的 package.json 文件以使用选定版本的工具。
+# volta 切换版本
 volta pin node@10.5.0
+volta pin yarn@1.22.10
 ```
