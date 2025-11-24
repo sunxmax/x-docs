@@ -1,29 +1,28 @@
-import {defineConfig} from 'vitepress'
-import {RSSOptions, RssPlugin} from 'vitepress-plugin-rss'
+import { defineConfig } from 'vitepress'
+import { RSSOptions, RssPlugin } from 'vitepress-plugin-rss'
+import mathjax3 from 'markdown-it-mathjax3';
 
 const RSS: RSSOptions = {
-    title: 'zero',
+    title: 'ZERO',
     baseUrl: 'https://zero-docs.vercel.app',
-    copyright: 'Copyright (c) 2021-present, zero',
+    copyright: 'Copyright (c) 2021-present, ZERO',
     description: 'feedId:67840654578173952+userId:67737338736758784'
 }
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-    title: "zero",
+    title: "ZERO",
     head: [
-        ['link', {rel: 'icon', href: '/favicon.ico'}],
+        ['link', { rel: 'icon', href: '/favicon.ico' }],
         ['link', {
             rel: 'stylesheet',
             href: 'https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Noto+Sans+SC:wght@100..900&display=swap'
         }],
-        ["script", {src: "/_vercel/insights/script.js", defer: true}],
-        ["script", {src: "/_vercel/speed-insights/script.js", defer: true}],
+        ["script", { src: "/_vercel/insights/script.js" }],
+        ["script", { src: "/_vercel/speed-insights/script.js" }],
     ],
     // <link href="https://fonts.cdnfonts.com/css/jetbrains-mono" rel="stylesheet">
-
     description: "记录与分享",
-
     lastUpdated: true,
 
     themeConfig: {
@@ -31,57 +30,85 @@ export default defineConfig({
         logo: '/logo.svg',
         siteTitle: 'ZERO',
         nav: [
-            {text: '首页', link: '/'},
-            {text: '拾遗', link: '/step/tool/Git'},
-            {text: '时光', link: '/time/index'},
+            { text: '首页', link: '/' },
+            { text: '拾遗', link: '/docs/keep/', activeMatch: '/docs/keep/' },
+            { text: '时光', link: '/docs/timeline/', activeMatch: '/docs/timeline/' },
         ],
 
         sidebar: {
-            '/step/': [
+            '/docs/keep/': [
                 {
-                    text: '工具',
-                    collapsed: true,
+                    text: 'AI', collapsed: true,
                     items: [
-                        {text: 'Git', link: '/step/tool/Git'},
-                        {text: 'Nginx', link: '/step/tool/Nginx'},
-                        {text: 'Maven', link: '/step/tool/Maven'},
-                        {text: 'Docker', link: '/step/tool/Docker'},
-                        {text: 'Arthas', link: '/step/tool/Arthas'},
-                        {text: 'FFmpeg', link: '/step/tool/FFmpeg'},
-                        {text: 'YT-DLP', link: '/step/tool/YT-DLP'},
-                        {text: 'Homebrew', link: '/step/tool/Homebrew'},
-                        {text: 'NVM/Volta', link: '/step/tool/NVM-Volta'},
-                        {text: 'WordPress', link: '/step/tool/WordPress'},
-
+                        { text: 'OpenAI', link: '/docs/ai' },
                     ]
                 },
                 {
                     text: '数据库',
                     collapsed: true,
                     items: [
-                        {text: 'Redis', link: '/step/sql/Redis'},
-                        {text: 'SQLite', link: '/step/sql/SQLite'},
-                        {text: 'MongoDB', link: '/step/sql/MongoDB'},
-                        {text: 'SQL Server', link: '/step/sql/SQL Server'},
+                        {
+                            text: '关系型',
+                            items: [
+                                { text: 'MySQL', link: '/docs/database/RDBMS/MySQL' },
+                                { text: 'Oracle', link: '/docs/database/RDBMS/Oracle' },
+                                { text: 'PostgreSQL', link: '/docs/database/RDBMS/PostgreSQL' },
+                                { text: 'SQLite', link: '/docs/database/RDBMS/SQLite' },
+                                { text: 'SQL Server', link: '/docs/database/RDBMS/SQL Server' },
+                                { text: 'MariaDB', link: '/docs/database/RDBMS/MariaDB' },
+                            ]
+                        },
+                        {
+                            text: '非关系型',
+                            items: [
+                                { text: 'Redis', link: '/docs/database/NoSQL/Redis' },
+                                { text: 'MongoDB', link: '/docs/database/NoSQL/MongoDB' },
+                                { text: 'Elasticsearch', link: '/docs/database/NoSQL/Elasticsearch' },
+                            ]
+                        },
+                    ]
+                },
+                {
+                    text: '开发语言',
+                    collapsed: true,
+                    items: [
+                        { text: 'Java', link: '/docs/language/Java' },
+                        { text: 'Python', link: '/docs/language/Python' },
                     ]
                 },
                 {
                     text: '消息队列',
                     collapsed: true,
                     items: [
-                        {text: 'Kafka', link: '/step/mq/kafka'},
+                        { text: 'Kafka', link: '/docs/mq/kafka' },
+                    ]
+                },
+                {
+                    text: '其他',
+                    collapsed: true,
+                    items: [
+                        { text: 'Git', link: '/step/tool/Git' },
+                        { text: 'Nginx', link: '/step/tool/Nginx' },
+                        { text: 'Maven', link: '/step/tool/Maven' },
+                        { text: 'Docker', link: '/step/tool/Docker' },
+                        { text: 'Arthas', link: '/step/tool/Arthas' },
+                        { text: 'FFmpeg', link: '/step/tool/FFmpeg' },
+                        { text: 'YT-DLP', link: '/step/tool/YT-DLP' },
+                        { text: 'Homebrew', link: '/step/tool/Homebrew' },
+                        { text: 'NVM/Volta', link: '/step/tool/NVM-Volta' },
+                        { text: 'WordPress', link: '/step/tool/WordPress' },
                     ]
                 },
             ],
-            '/time/': [
+            '/docs/timeline/': [
                 {
-                    text: 'Follow',
+                    text: '时间线',
                     collapsed: true,
                     items: [
-                        {text: 'Airdrop', link: '/time/follow-airdrop'},
+                        { text: '总结', link: '/docs/timeline/summary' },
                     ]
-                }
-            ],
+                },
+            ]
         },
 
         lastUpdated: {
@@ -89,10 +116,10 @@ export default defineConfig({
         },
 
         socialLinks: [
-            {icon: 'github', link: 'https://github.com/sunxmax'}
+            { icon: 'github', link: 'https://github.com/sunxmax' }
         ],
 
-        editLinks: true,
+        // editLinks: true, 
         editLink: {
             pattern: 'https://github.com/sunxmax/zero-docs/edit/main/docs/:path',
             text: '在 GitHub 上编辑此页面'
@@ -135,6 +162,12 @@ export default defineConfig({
                     }
                 }
             }
+        },
+    },
+    markdown: {
+        math: true, // 启用数学公式支持
+        config: (md) => {
+            md.use(mathjax3); // 注册 markdown-it-mathjax3 插件
         },
     },
 

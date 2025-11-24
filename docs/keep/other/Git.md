@@ -40,6 +40,18 @@ git config --list
 
 ```
 
+**删除误伤文件夹**
+
+```
+# 使用 git rm 命令来删除文件夹及其内部所有文件。-r 参数表示递归删除。
+# 如果你只想从 Git 仓库中删除，但保留在本地硬盘上（比如配置文件、编译产物等），请使用 --cached。
+# 如果你想同时从 Git 仓库和本地硬盘上删除，则不要加 --cached。
+git rm -r --cached <文件夹名称>
+
+# 示例：
+git rm -r --cached node_modules
+```
+
 **删除本地 Git信息**
 
 通过删除 .git 目录来实现。
@@ -79,36 +91,36 @@ git config remote.origin.url "git@github.com:username/xxx.git"
     >
     > User：用户
 
-    ```text  
-    # company  
-    Host company  
-    HostName github.com  
-    IdentityFile ~/.ssh/id_company  
-    PreferredAuthentications publickey  
-    User company  
-      
-    # person  
-    Host person  
-    HostName github.com  
-    IdentityFile ~/.ssh/id_person  
-    PreferredAuthentications publickey  
-    User person  
-    ```  
+    ```text
+    # company
+    Host company
+    HostName github.com
+    IdentityFile ~/.ssh/id_company
+    PreferredAuthentications publickey
+    User company
+
+    # person
+    Host person
+    HostName github.com
+    IdentityFile ~/.ssh/id_person
+    PreferredAuthentications publickey
+    User person
+    ```
 
 3. 测试
-    ```shell  
-    # ssh -T git@Host  
-    ssh -T git@company  
-      
-    # 成功结果  
-    Hi company! You've successfully authenticated, but GitHub does not provide shell access.  
-    ```  
+    ```shell
+    # ssh -T git@Host
+    ssh -T git@company
+
+    # 成功结果
+    Hi company! You've successfully authenticated, but GitHub does not provide shell access.
+    ```
 4. 清楚全局默认 `user.name` 和 `user.email`
-    ```shell  
+    ```shell
     git config --global --unset user.namegit config --global --unset user.email
-    ```  
+    ```
 5. 在对应项目中添加 `user.name` 和 `user.email`
-    ```shell  
+    ```shell
     git config --local user.name xxxgit config --local user.email xxx@xxx.com
     ```
 
@@ -116,15 +128,15 @@ git config remote.origin.url "git@github.com:username/xxx.git"
 
 **编辑提交信息**
 
-```shell  
+```shell
 git commit --amend
-```  
+```
 
 **撤销回滚上版本**
 
-```shell  
+```shell
 git reset --soft HEAD~1
-```  
+```
 
 > 如果你进行了 2 次 `commit`，想都撤回，可以使用 `HEAD~2`
 >

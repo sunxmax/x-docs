@@ -5,14 +5,14 @@ layout: home
 hero:
   name: "ZERO"
   text: "记录与分享"
-  tagline: 记录美好生活，体味人生百态
+  tagline: 欲买桂花同载酒，终不似，少年游！
   actions:
     - theme: brand
       text: 拾遗
-      link: /step/tool/Arthas
+      link: /docs/keep/
     - theme: alt
       text: 时光
-      link: /time/index
+      link: /docs/timeline/
 
 #features:
 #  - title: 记录
