@@ -3,15 +3,15 @@ import { RSSOptions, RssPlugin } from 'vitepress-plugin-rss'
 import mathjax3 from 'markdown-it-mathjax3';
 
 const RSS: RSSOptions = {
-    title: 'ZERO',
-    baseUrl: 'https://zero-docs.vercel.app',
-    copyright: 'Copyright (c) 2021-present, ZERO',
+    title: 'Lx6wZ4',
+    baseUrl: 'https://xdocscn.vercel.app',
+    copyright: 'Copyright (c) 2021-present, Lx6wZ4',
     description: 'feedId:67840654578173952+userId:67737338736758784'
 }
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-    title: "ZERO",
+    title: "Lx6wZ4",
     head: [
         ['link', { rel: 'icon', href: '/favicon.ico' }],
         ['link', {
@@ -28,7 +28,7 @@ export default defineConfig({
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
         logo: '/logo.svg',
-        siteTitle: 'ZERO',
+        siteTitle: 'Lx6wZ4',
         nav: [
             { text: '首页', link: '/' },
             { text: '拾遗', link: '/docs/keep/', activeMatch: '/docs/keep/' },
@@ -50,20 +50,20 @@ export default defineConfig({
                         {
                             text: '关系型',
                             items: [
-                                { text: 'MySQL', link: '/docs/database/RDBMS/MySQL' },
-                                { text: 'Oracle', link: '/docs/database/RDBMS/Oracle' },
-                                { text: 'PostgreSQL', link: '/docs/database/RDBMS/PostgreSQL' },
-                                { text: 'SQLite', link: '/docs/database/RDBMS/SQLite' },
-                                { text: 'SQL Server', link: '/docs/database/RDBMS/SQL Server' },
-                                { text: 'MariaDB', link: '/docs/database/RDBMS/MariaDB' },
+                                { text: 'MySQL', link: '/docs/keep/database/RDBMS/MySQL' },
+                                { text: 'Oracle', link: '/docs/keep/database/RDBMS/Oracle' },
+                                { text: 'PostgreSQL', link: '/docs/keep/database/RDBMS/PostgreSQL' },
+                                { text: 'SQLite', link: '/docs/keep/database/RDBMS/SQLite' },
+                                { text: 'SQL Server', link: '/docs/keep/database/RDBMS/SQL Server' },
+                                // { text: 'MariaDB', link: '/docs/keep/database/RDBMS/MariaDB' },
                             ]
                         },
                         {
                             text: '非关系型',
                             items: [
-                                { text: 'Redis', link: '/docs/database/NoSQL/Redis' },
-                                { text: 'MongoDB', link: '/docs/database/NoSQL/MongoDB' },
-                                { text: 'Elasticsearch', link: '/docs/database/NoSQL/Elasticsearch' },
+                                { text: 'Redis', link: '/docs/keep/database/NoSQL/Redis' },
+                                { text: 'MongoDB', link: '/docs/keep/database/NoSQL/MongoDB' },
+                                { text: 'Elasticsearch', link: '/docs/keep/database/NoSQL/Elasticsearch' },
                             ]
                         },
                     ]
@@ -72,31 +72,31 @@ export default defineConfig({
                     text: '开发语言',
                     collapsed: true,
                     items: [
-                        { text: 'Java', link: '/docs/language/Java' },
-                        { text: 'Python', link: '/docs/language/Python' },
+                        { text: 'Java', link: '/docs/keep/language/Java' },
+                        { text: 'Python', link: '/docs/keep/language/Python' },
                     ]
                 },
                 {
                     text: '消息队列',
                     collapsed: true,
                     items: [
-                        { text: 'Kafka', link: '/docs/mq/kafka' },
+                        { text: 'Kafka', link: '/docs/keep/mq/kafka' },
                     ]
                 },
                 {
                     text: '其他',
                     collapsed: true,
                     items: [
-                        { text: 'Git', link: '/step/tool/Git' },
-                        { text: 'Nginx', link: '/step/tool/Nginx' },
-                        { text: 'Maven', link: '/step/tool/Maven' },
-                        { text: 'Docker', link: '/step/tool/Docker' },
-                        { text: 'Arthas', link: '/step/tool/Arthas' },
-                        { text: 'FFmpeg', link: '/step/tool/FFmpeg' },
-                        { text: 'YT-DLP', link: '/step/tool/YT-DLP' },
-                        { text: 'Homebrew', link: '/step/tool/Homebrew' },
-                        { text: 'NVM/Volta', link: '/step/tool/NVM-Volta' },
-                        { text: 'WordPress', link: '/step/tool/WordPress' },
+                        { text: 'Git', link: '/docs/keep/tool/Git' },
+                        { text: 'Nginx', link: '/docs/keep/tool/Nginx' },
+                        { text: 'Maven', link: '/docs/keep/tool/Maven' },
+                        { text: 'Docker', link: '/docs/keep/tool/Docker' },
+                        { text: 'Arthas', link: '/docs/keep/tool/Arthas' },
+                        { text: 'FFmpeg', link: '/docs/keep/tool/FFmpeg' },
+                        { text: 'YT-DLP', link: '/docs/keep/tool/YT-DLP' },
+                        { text: 'Homebrew', link: '/docs/keep/tool/Homebrew' },
+                        { text: 'NVM/Volta', link: '/docs/keep/tool/NVM-Volta' },
+                        { text: 'WordPress', link: '/docs/keep/tool/WordPress' },
                     ]
                 },
             ],
@@ -137,7 +137,7 @@ export default defineConfig({
 
         footer: {
             message: 'Released under the MIT License.',
-            copyright: 'Copyright © 2021-present zero'
+            copyright: 'Copyright © 2021-present x'
         },
 
         search: {
