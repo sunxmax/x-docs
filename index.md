@@ -3,7 +3,7 @@
 layout: home
 
 hero:
-  name: "ZERO"
+  name: "Lx6wZ4"
   text: "记录与分享"
   tagline: 欲买桂花同载酒，终不似，少年游！
   actions:
