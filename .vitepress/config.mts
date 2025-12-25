@@ -1,5 +1,5 @@
-import { defineConfig } from 'vitepress'
-import { RSSOptions, RssPlugin } from 'vitepress-plugin-rss'
+import {defineConfig} from 'vitepress'
+import {RSSOptions, RssPlugin} from 'vitepress-plugin-rss'
 import mathjax3 from 'markdown-it-mathjax3';
 
 const RSS: RSSOptions = {
@@ -13,13 +13,13 @@ const RSS: RSSOptions = {
 export default defineConfig({
     title: "Lx6wZ4",
     head: [
-        ['link', { rel: 'icon', href: '/favicon.ico' }],
+        ['link', {rel: 'icon', href: '/favicon.ico'}],
         ['link', {
             rel: 'stylesheet',
             href: 'https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Noto+Sans+SC:wght@100..900&display=swap'
         }],
-        ["script", { src: "/_vercel/insights/script.js" }],
-        ["script", { src: "/_vercel/speed-insights/script.js" }],
+        ["script", {src: "/_vercel/insights/script.js"}],
+        ["script", {src: "/_vercel/speed-insights/script.js"}],
     ],
     // <link href="https://fonts.cdnfonts.com/css/jetbrains-mono" rel="stylesheet">
     description: "记录与分享",
@@ -30,9 +30,9 @@ export default defineConfig({
         logo: '/logo.svg',
         siteTitle: 'Lx6wZ4',
         nav: [
-            { text: '首页', link: '/' },
-            { text: '拾遗', link: '/docs/keep/', activeMatch: '/docs/keep/' },
-            { text: '时光', link: '/docs/timeline/', activeMatch: '/docs/timeline/' },
+            {text: '首页', link: '/'},
+            {text: '拾遗', link: '/docs/keep/', activeMatch: '/docs/keep/'},
+            {text: '时光', link: '/docs/timeline/', activeMatch: '/docs/timeline/'},
         ],
 
         sidebar: {
@@ -40,7 +40,7 @@ export default defineConfig({
                 {
                     text: 'AI', collapsed: true,
                     items: [
-                        { text: 'OpenAI', link: '/docs/ai' },
+                        {text: 'OpenAI', link: '/docs/ai'},
                     ]
                 },
                 {
@@ -50,20 +50,20 @@ export default defineConfig({
                         {
                             text: '关系型',
                             items: [
-                                { text: 'MySQL', link: '/docs/keep/database/RDBMS/MySQL' },
-                                { text: 'Oracle', link: '/docs/keep/database/RDBMS/Oracle' },
-                                { text: 'PostgreSQL', link: '/docs/keep/database/RDBMS/PostgreSQL' },
-                                { text: 'SQLite', link: '/docs/keep/database/RDBMS/SQLite' },
-                                { text: 'SQL Server', link: '/docs/keep/database/RDBMS/SQL Server' },
+                                {text: 'MySQL', link: '/docs/keep/database/RDBMS/MySQL'},
+                                {text: 'Oracle', link: '/docs/keep/database/RDBMS/Oracle'},
+                                {text: 'PostgreSQL', link: '/docs/keep/database/RDBMS/PostgreSQL'},
+                                {text: 'SQLite', link: '/docs/keep/database/RDBMS/SQLite'},
+                                {text: 'SQL Server', link: '/docs/keep/database/RDBMS/SQL Server'},
                                 // { text: 'MariaDB', link: '/docs/keep/database/RDBMS/MariaDB' },
                             ]
                         },
                         {
                             text: '非关系型',
                             items: [
-                                { text: 'Redis', link: '/docs/keep/database/NoSQL/Redis' },
-                                { text: 'MongoDB', link: '/docs/keep/database/NoSQL/MongoDB' },
-                                { text: 'Elasticsearch', link: '/docs/keep/database/NoSQL/Elasticsearch' },
+                                {text: 'Redis', link: '/docs/keep/database/NoSQL/Redis'},
+                                {text: 'MongoDB', link: '/docs/keep/database/NoSQL/MongoDB'},
+                                {text: 'Elasticsearch', link: '/docs/keep/database/NoSQL/Elasticsearch'},
                             ]
                         },
                     ]
@@ -72,31 +72,31 @@ export default defineConfig({
                     text: '开发语言',
                     collapsed: true,
                     items: [
-                        { text: 'Java', link: '/docs/keep/language/Java' },
-                        { text: 'Python', link: '/docs/keep/language/Python' },
+                        {text: 'Java', link: '/docs/keep/language/Java'},
+                        {text: 'Python', link: '/docs/keep/language/Python'},
                     ]
                 },
                 {
                     text: '消息队列',
                     collapsed: true,
                     items: [
-                        { text: 'Kafka', link: '/docs/keep/mq/kafka' },
+                        {text: 'Kafka', link: '/docs/keep/mq/kafka'},
                     ]
                 },
                 {
                     text: '其他',
                     collapsed: true,
                     items: [
-                        { text: 'Git', link: '/docs/keep/tool/Git' },
-                        { text: 'Nginx', link: '/docs/keep/tool/Nginx' },
-                        { text: 'Maven', link: '/docs/keep/tool/Maven' },
-                        { text: 'Docker', link: '/docs/keep/tool/Docker' },
-                        { text: 'Arthas', link: '/docs/keep/tool/Arthas' },
-                        { text: 'FFmpeg', link: '/docs/keep/tool/FFmpeg' },
-                        { text: 'YT-DLP', link: '/docs/keep/tool/YT-DLP' },
-                        { text: 'Homebrew', link: '/docs/keep/tool/Homebrew' },
-                        { text: 'NVM/Volta', link: '/docs/keep/tool/NVM-Volta' },
-                        { text: 'WordPress', link: '/docs/keep/tool/WordPress' },
+                        {text: 'Git', link: '/docs/keep/tool/Git'},
+                        {text: 'Nginx', link: '/docs/keep/tool/Nginx'},
+                        {text: 'Maven', link: '/docs/keep/tool/Maven'},
+                        {text: 'Docker', link: '/docs/keep/tool/Docker'},
+                        {text: 'Arthas', link: '/docs/keep/tool/Arthas'},
+                        {text: 'FFmpeg', link: '/docs/keep/tool/FFmpeg'},
+                        {text: 'YT-DLP', link: '/docs/keep/tool/YT-DLP'},
+                        {text: 'Homebrew', link: '/docs/keep/tool/Homebrew'},
+                        {text: 'NVM/Volta', link: '/docs/keep/tool/NVM-Volta'},
+                        {text: 'WordPress', link: '/docs/keep/tool/WordPress'},
                     ]
                 },
             ],
@@ -105,8 +105,12 @@ export default defineConfig({
                     text: '时间线',
                     collapsed: true,
                     items: [
-                        { text: '总结', link: '/docs/timeline/summary' },
+                        {text: '总结', link: '/docs/timeline/summary'},
                     ]
+                },
+                {
+                    text: '20251225',
+                    link: '/christmas.html'
                 },
             ]
         },
@@ -116,7 +120,7 @@ export default defineConfig({
         },
 
         socialLinks: [
-            { icon: 'github', link: 'https://github.com/sunxmax' }
+            {icon: 'github', link: 'https://github.com/sunxmax'}
         ],
 
         // editLinks: true, 

@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>圣诞快乐 - Merry Christmas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Noto+Sans+SC:wght@700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --tree-green: #2ecc71;
+            --tree-dark: #27ae60;
+            --red: #e74c3c;
+            --gold: #f1c40f;
+            --snow: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: radial-gradient(ellipse at top, #19233a 0%, #070a14 60%) fixed;
+            color: #fff;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Fredoka One', 'Noto Sans SC', sans-serif;
+            perspective: 1000px;
+        }
+
+        /* 霓虹灯标题 */
+        .title {
+            text-align: center;
+            font-size: 3.5rem;
+            /* Reduced from 5rem */
+            letter-spacing: 3px;
+            text-shadow:
+                0 0 6px #fff,
+                0 0 12px #fff,
+                0 0 20px #0ff,
+                0 0 40px #0ff;
+            animation: pulse 2.8s infinite ease-in-out;
+            margin-bottom: 20px;
+            cursor: default;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                text-shadow: 0 0 6px #fff, 0 0 20px #0ff, 0 0 40px #0ff;
+            }
+
+            50% {
+                text-shadow: 0 0 10px #fff, 0 0 30px #0ff, 0 0 60px #0ff;
+            }
+        }
+
+        footer {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            opacity: .8;
+            color: #fff;
+            font-size: 0.9rem;
+            z-index: 20;
+        }
+
+        /* 流星线 */
+        .glow-line {
+            position: fixed;
+            width: 120px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #0ff);
+            top: 20%;
+            left: -150px;
+            animation: sweep 4s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes sweep {
+            to {
+                transform: translateX(140vw);
+            }
+        }
+
+        /* Moon and Santa Area */
+        .moon {
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            width: 100px;
+            height: 100px;
+            background: #f1c40f;
+            border-radius: 50%;
+            box-shadow: 0 0 40px #f1c40f;
+            z-index: 1;
+        }
+
+        .sleigh-container {
+            position: absolute;
+            top: 80px;
+            right: -200px;
+            z-index: 2;
+            animation: flyAcross 15s linear infinite;
+        }
+
+        @keyframes flyAcross {
+            0% {
+                right: -200px;
+                transform: scale(0.5);
+            }
+
+            100% {
+                right: 120%;
+                transform: scale(0.5);
+            }
+        }
+
+        /* Main Container */
+        .container {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            margin-top: -120px;
+            /* Pull up even more */
+        }
+
+        /* Left Greeting Card */
+        .greeting-card {
+            position: absolute;
+            top: 50%;
+            left: 5%;
+            transform: translateY(-50%);
+            width: 250px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            text-align: left;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: float 6s ease-in-out infinite;
+            z-index: 12;
+        }
+
+        .greeting-card h3 {
+            margin: 0 0 10px 0;
+            color: #f1c40f;
+            font-size: 1.5rem;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .greeting-card p {
+            margin: 5px 0;
+            font-size: 1rem;
+            line-height: 1.6;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(-50%) translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-50%) translateY(-15px);
+            }
+        }
+
+        /* Cartoon Title */
+
+
+
+
+
+
+        /* The Cool Tree */
+        .tree-container {
+            position: relative;
+            width: 300px;
+            height: 400px;
+            margin: 60px auto 0;
+            /* Increased margin to separate from title */
+            transform-style: preserve-3d;
+            transition: transform 0.5s ease;
+            transform: scale(1.5);
+            transform-origin: center bottom;
+        }
+
+        .tree-container:hover {
+            transform: scale(1.6) rotateY(10deg);
+        }
+
+        .layer {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: solid transparent;
+            border-right: solid transparent;
+            border-bottom: solid var(--tree-dark);
+            filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.3));
+        }
+
+        .layer::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 100%;
+            width: 0;
+            height: 0;
+            border-left: inherit;
+            border-right: inherit;
+            border-bottom: inherit;
+            border-bottom-color: var(--tree-green);
+            margin-left: -50%;
+        }
+
+        .layer-1 {
+            top: 0;
+            border-width: 0 60px 80px 60px;
+            z-index: 5;
+        }
+
+        .layer-1::after {
+            border-width: 0 50px 70px 50px;
+            top: 6px;
+            margin-left: 0;
+            left: -50px;
+        }
+
+        /* Fix pseudoelement alignment */
+        /* Redoing layers for easier centering logic */
+
+        .tree-part {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 20px;
+            background: linear-gradient(135deg, var(--tree-green), var(--tree-dark));
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .p1 {
+            bottom: 200px;
+            width: 140px;
+            height: 120px;
+            z-index: 3;
+            -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+
+        .p2 {
+            bottom: 120px;
+            width: 200px;
+            height: 150px;
+            z-index: 2;
+            -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+
+        .p3 {
+            bottom: 40px;
+            width: 260px;
+            height: 180px;
+            z-index: 1;
+            -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+
+        .trunk {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 60px;
+            background: #5d4037;
+            border-radius: 5px;
+            z-index: 0;
+        }
+
+        /* Star */
+        .star {
+            position: absolute;
+            top: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--gold);
+            font-size: 50px;
+            z-index: 6;
+            animation: spin 3s infinite linear;
+            text-shadow: 0 0 20px var(--gold);
+        }
+
+        @keyframes spin {
+            0% {
+                transform: translateX(-50%) rotate(0deg);
+            }
+
+            50% {
+                transform: translateX(-50%) rotate(180deg) scale(1.2);
+            }
+
+            100% {
+                transform: translateX(-50%) rotate(360deg);
+            }
+        }
+
+        /* Ornaments */
+        .bulb {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            animation: glow 1s infinite alternate;
+            z-index: 4;
+            box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .b1 {
+            background: #e74c3c;
+            bottom: 220px;
+            left: 130px;
+            animation-delay: 0.1s;
+        }
+
+        .b2 {
+            background: #3498db;
+            bottom: 240px;
+            left: 160px;
+            animation-delay: 0.3s;
+        }
+
+        .b3 {
+            background: #f1c40f;
+            bottom: 150px;
+            left: 100px;
+            animation-delay: 0.5s;
+        }
+
+        .b4 {
+            background: #9b59b6;
+            bottom: 160px;
+            left: 190px;
+            animation-delay: 0.7s;
+        }
+
+        .b5 {
+            background: #e67e22;
+            bottom: 140px;
+            left: 150px;
+            animation-delay: 0.2s;
+        }
+
+        .b6 {
+            background: #e74c3c;
+            bottom: 70px;
+            left: 80px;
+            animation-delay: 0.4s;
+        }
+
+        .b7 {
+            background: #3498db;
+            bottom: 60px;
+            left: 210px;
+            animation-delay: 0.6s;
+        }
+
+        .b8 {
+            background: #f1c40f;
+            bottom: 90px;
+            left: 140px;
+            animation-delay: 0.8s;
+        }
+
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 5px currentColor;
+            }
+
+            to {
+                box-shadow: 0 0 20px currentColor, 0 0 10px #fff;
+            }
+        }
+
+        /* Snowflakes */
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            color: #fff;
+            pointer-events: none;
+            font-size: 14px;
+            filter: drop-shadow(0 0 3px #fff);
+            z-index: 5;
+        }
+
+        /* Gift boxes */
+        .gifts {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 50px;
+            z-index: 4;
+        }
+
+        .gift {
+            position: absolute;
+            bottom: 0;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(to top, #c0392b, #e74c3c);
+            border-radius: 4px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .gift::before {
+            content: '';
+            position: absolute;
+            left: 18px;
+            width: 4px;
+            height: 100%;
+            background: #f1c40f;
+        }
+
+        .gift::after {
+            content: '';
+            position: absolute;
+            top: 18px;
+            height: 4px;
+            width: 100%;
+            background: #f1c40f;
+        }
+
+        .g1 {
+            left: 80px;
+        }
+
+        .g2 {
+            left: 180px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(#2980b9, #3498db);
+            bottom: 5px;
+        }
+
+        .g2::before,
+        .g2::after {
+            background: #ecf0f1;
+            left: 23px;
+            top: 23px;
+        }
+
+        /* Interactive Message */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* Santa Claus CSS */
+        /* Santa Claus CSS - Wrapper for SVG */
+        .santa-claus {
+            position: absolute;
+            bottom: 20px;
+            right: -160px;
+            /* Position next to tree */
+            width: 160px;
+            height: 200px;
+            z-index: 15;
+            animation: santaBounce 3s ease-in-out infinite;
+            cursor: pointer;
+            filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.3));
+            transition: transform 0.3s;
+        }
+
+        .santa-claus:hover {
+            transform: scale(1.1) translateY(-10px);
+        }
+
+        @keyframes santaBounce {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-10px) rotate(2deg);
+            }
+        }
+
+        /* Santa Eyes Animation */
+        .santa-eye-pupil {
+            animation: blink 4s infinite;
+            transform-origin: center;
+        }
+
+        @keyframes blink {
+
+            0%,
+            96%,
+            98% {
+                transform: scaleY(1);
+            }
+
+            97% {
+                transform: scaleY(0.1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <div class="glow-line"></div>
+
+    <div class="moon"></div>
+
+    <div class="greeting-card">
+        <h3>To: 亲爱的朋友</h3>
+        <p>愿你的圣诞充满温馨与喜悦。</p>
+        <p>May your Christmas be filled with warmth and joy.</p>
+        <p style="text-align: right; margin-top: 15px;">From: Santa</p>
+    </div>
+
+    <!-- SVG Sleigh Silhouette -->
+    <div class="sleigh-container">
+        <svg fill="#000" width="100px" height="60px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M22 6.5h-2c0-1.4-1.1-2.5-2.5-2.5s-2.5 1.1-2.5 2.5h-1c0-1.4-1.1-2.5-2.5-2.5S9 5.1 9 6.5H8c0-1.4-1.1-2.5-2.5-2.5S3 5.1 3 6.5H1v2h2v7h1v-7h2v7h1v-7h2v7h1v-7h2v7h1v-7h2v7h1v-7h2v7h1v-2z" />
+            <!-- Simplified abstract sleigh/reindeer shape representation -->
+        </svg>
+    </div>
+
+    <div class="container">
+        <div class="title">🎄 圣诞快乐 · Merry Christmas 🎅</div>
+
+        <div class="tree-container" onclick="shakeTree()">
+            <div class="star">★</div>
+
+            <div class="tree-part p1"></div>
+            <div class="tree-part p2"></div>
+            <div class="tree-part p3"></div>
+
+            <!-- Ornaments -->
+            <div class="bulb b1"></div>
+            <div class="bulb b2"></div>
+            <div class="bulb b3"></div>
+            <div class="bulb b4"></div>
+            <div class="bulb b5"></div>
+            <div class="bulb b6"></div>
+            <div class="bulb b7"></div>
+            <div class="bulb b8"></div>
+
+            <div class="trunk"></div>
+
+            <div class="gifts">
+                <div class="gift g1"></div>
+                <div class="gift g2"></div>
+            </div>
+        </div>
+
+        <div class="santa-claus" onclick="hohoho()">
+            <svg viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+                <!-- Boots -->
+                <path d="M60 280 L60 250 L90 250 L90 280 A10 10 0 0 1 80 290 L70 290 A10 10 0 0 1 60 280 Z"
+                    fill="#2c3e50" />
+                <path d="M110 280 L110 250 L140 250 L140 280 A10 10 0 0 1 130 290 L120 290 A10 10 0 0 1 110 280 Z"
+                    fill="#2c3e50" />
+
+                <!-- Body -->
+                <ellipse cx="100" cy="190" rx="70" ry="80" fill="#e74c3c" />
+                <path d="M30 190 Q100 290 170 190" fill="#e74c3c" /> <!-- Coat bottom trim fix -->
+                <rect x="30" y="180" width="140" height="20" fill="#ecf0f1" rx="10" /> <!-- Vertical Trim -->
+                <rect x="90" y="120" width="20" height="140" fill="#ecf0f1" /> <!-- Center Trim -->
+
+                <!-- Belt -->
+                <rect x="25" y="180" width="150" height="25" fill="#2c3e50" rx="5" />
+                <rect x="85" y="175" width="30" height="35" fill="none" stroke="#f1c40f" stroke-width="4" rx="2" />
+                <circle cx="100" cy="192" r="2" fill="#f1c40f" />
+
+                <!-- Arms -->
+                <path d="M40 140 Q20 160 30 190" stroke="#e74c3c" stroke-width="25" stroke-linecap="round"
+                    fill="none" />
+                <path d="M160 140 Q180 160 170 190" stroke="#e74c3c" stroke-width="25" stroke-linecap="round"
+                    fill="none" />
+
+                <!-- Gloves -->
+                <circle cx="30" cy="190" r="15" fill="#27ae60" />
+                <circle cx="170" cy="190" r="15" fill="#27ae60" />
+
+                <!-- Beard Base -->
+                <path d="M50 80 Q100 180 150 80" fill="#ecf0f1" />
+
+                <!-- Head -->
+                <circle cx="100" cy="80" r="40" fill="#ffe0bd" />
+
+                <!-- Beard Top layer -->
+                <path d="M55 90 Q100 160 145 90 Q145 70 135 70 Q100 70 65 70 Q55 70 55 90" fill="#ecf0f1" />
+
+                <!-- Face Features -->
+                <circle cx="85" cy="75" r="4" fill="#2c3e50" class="santa-eye-pupil" />
+                <circle cx="115" cy="75" r="4" fill="#2c3e50" class="santa-eye-pupil" />
+                <circle cx="100" cy="85" r="6" fill="#e74c3c" opacity="0.6" /> <!-- Nose -->
+                <path d="M80 65 Q85 60 90 65" stroke="#95a5a6" stroke-width="2" fill="none" /> <!-- Eyebrow -->
+                <path d="M110 65 Q115 60 120 65" stroke="#95a5a6" stroke-width="2" fill="none" /> <!-- Eyebrow -->
+
+                <!-- Mustache -->
+                <path d="M100 90 Q80 100 70 85 Q85 80 100 85" fill="#fff"
+                    filter="drop-shadow(0 2px 2px rgba(0,0,0,0.1))" />
+                <path d="M100 90 Q120 100 130 85 Q115 80 100 85" fill="#fff"
+                    filter="drop-shadow(0 2px 2px rgba(0,0,0,0.1))" />
+
+                <!-- Hat -->
+                <path d="M60 55 Q50 10 100 5 L140 55 Z" fill="#e74c3c" />
+                <path d="M100 5 Q140 10 160 40 L130 50 Z" fill="#e74c3c" /> <!-- Hat Tip hanging -->
+                <circle cx="160" cy="40" r="12" fill="#fff" /> <!-- Pompom -->
+                <rect x="50" y="45" width="100" height="20" rx="10" fill="#fff" /> <!-- Hat Brim -->
+
+            </svg>
+        </div>
+    </div>
+
+    <footer>
+        Made with ❤️ · 祝你平安喜乐
+    </footer>
+
+    <div id="toast" class="toast">Surprise! Have a wonderful holiday! 🎁</div>
+
+    <script>
+        // Snowfall Logic
+        const snow = () => {
+            const count = 95;
+            for (let i = 0; i < count; i++) {
+                const s = document.createElement("div");
+                s.className = "snowflake";
+                s.textContent = Math.random() > 0.5 ? "❄" : "✻";
+                s.style.left = Math.random() * 100 + "vw";
+                s.style.fontSize = 10 + Math.random() * 18 + "px";
+                s.style.opacity = 0.55 + Math.random() * 0.45;
+                document.body.appendChild(s);
+
+                const fall = () => {
+                    const h = window.innerHeight + 30;
+                    let y = -20;
+                    const speed = 0.55 + Math.random();
+                    const drift = Math.random() * 2;
+                    let angle = 0;
+
+                    const step = () => {
+                        y += speed;
+                        angle += 0.01;
+                        s.style.transform = `translateY(${y}px) translateX(${Math.sin(y / 40 + angle) * 20 * drift}px)`;
+
+                        if (y < h) {
+                            requestAnimationFrame(step);
+                        } else {
+                            y = -20;
+                            s.style.left = Math.random() * 100 + "vw"; // Reset horizontal position randomly
+                            step();
+                        }
+                    };
+                    step();
+                };
+                fall();
+            }
+        };
+        snow();
+
+        // Interaction
+        function shakeTree() {
+            const tree = document.querySelector('.tree-container');
+            tree.style.animation = 'shake 0.5s cubic-bezier(.36,.07,.19,.97) both';
+            showToast("惊喜！祝你假期愉快！🎁");
+        }
+
+        function hohoho() {
+            const santa = document.querySelector('.santa-claus');
+            santa.style.animation = 'none';
+            santa.offsetHeight; /* trigger reflow */
+            santa.style.animation = 'santaBounce 0.5s ease-in-out';
+            setTimeout(() => {
+                santa.style.animation = 'santaBounce 3s ease-in-out infinite';
+            }, 500);
+
+            showToast("吼吼吼！圣诞快乐！🎅");
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            toast.innerText = msg;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Add shake keyframes dynamically
+        const styleSheet = document.createElement("style");
+        styleSheet.innerText = `
+            @keyframes shake {
+                10%, 90% { transform: translate3d(-1px, 0, 0) rotateY(10deg); }
+                20%, 80% { transform: translate3d(2px, 0, 0) rotateY(-10deg); }
+                30%, 50%, 70% { transform: translate3d(-4px, 0, 0) rotateY(10deg); }
+                40%, 60% { transform: translate3d(4px, 0, 0) rotateY(-10deg); }
+            }
+        `;
+        document.head.appendChild(styleSheet);
+
+    </script>
+</body>
+
+</html>
